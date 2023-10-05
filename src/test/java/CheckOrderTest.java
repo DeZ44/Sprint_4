@@ -6,7 +6,6 @@ import po.MainPage;
 import po.OrderPage;
 import java.util.concurrent.TimeUnit;
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.junit.Assert.assertEquals;
 
 
 @RunWith(Parameterized.class)
