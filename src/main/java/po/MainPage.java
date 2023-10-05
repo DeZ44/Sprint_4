@@ -24,23 +24,17 @@ public class MainPage extends BasePage {
         driver.get(WEBSITE_URL);
     }
 
+    public void clickOnDownOrderButton(){
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(downOrderButton));
+        driver.findElement(downOrderButton).click();
+    }
+
     public void closeCookie(){
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.elementToBeClickable(closeCookie));
         driver.findElement(closeCookie).click();
     }
 
-    public void clickOnOrderButton(String button) {
-        if (button.equals("down")) {
-            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(downOrderButton));
-            new WebDriverWait(driver, 5)
-                    .until(ExpectedConditions.elementToBeClickable(downOrderButton));
-            driver.findElement(downOrderButton).click();
-        } else {
-            topOrderButtonClick();
-        }
-
-    }
 
     public String getTextFaqElementById(String id) {
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.id("accordion__heading-" + id)));

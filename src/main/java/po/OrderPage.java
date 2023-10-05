@@ -39,6 +39,8 @@ public class OrderPage extends BasePage {
     private By yesButton = By.xpath(".//div[@class = 'Order_Buttons__1xGrp']/button[text() = 'Да']");
     //Текст об успешном заказе
     private By successfulOrderWindow = By.xpath(".//div[@class = 'Order_Text__2broi']/parent::div");
+    //Заголовок оформления заказа
+    private By openedOrderWindow = By.className("Order_Header__BZXOb");
 
 
 
@@ -120,8 +122,12 @@ public class OrderPage extends BasePage {
 
     public String checkOrder() {
         return driver.findElement(successfulOrderWindow).getText();
-
     }
+
+    public String getTextFromOpenedOrderWindow() {
+        return driver.findElement(openedOrderWindow).getText();
+    }
+
 
     public void setOrderPlaceOfDelivery(String date, String period, String color, String comment) {
         setDate(date);
